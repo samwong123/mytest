@@ -2,6 +2,8 @@
 export GOPATH=$WORKSPACE
 mkdir -p $GOPATH/src 
 
+export PATH=$PATH:/var/jenkins_home/tools/org.jenkinsci.plugins.golang.GolangInstallation/go-1.16/go/bin
+
 project_name=$(echo $GIT_URL | awk -F/ '{print $NF}' | sed 's/.git//g')
 echo ${project_name}
 

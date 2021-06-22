@@ -4,7 +4,7 @@ pipeline {
 	environment { 
         PATH = """${sh(
                 returnStdout: true,
-                script: 'echo $PATH:/var/jenkins_home/tools/org.jenkinsci.plugins.golang.GolangInstallation/go-1.16/go/bin'
+                script: 'echo $PATH:/var/jenkins_home/tools/org.jenkinsci.plugins.golang.GolangInstallation/go-1.16/go/bin'		                                    
             )}""" 			
 		
 		
@@ -20,6 +20,7 @@ pipeline {
 				echo "WORKSPACE = ${env.WORKSPACE}"
 				echo "GIT_URL = ${env.GIT_URL}"								
 				echo "PWD = $pwd"
+				echo "PATH = $PATH"
 				sh "sh build.sh"
 
             }
