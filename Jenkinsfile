@@ -1,3 +1,5 @@
+Jenkinsfile (Declarative Pipeline)
+
 pipeline {
     agent any
 
@@ -5,6 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${env.WORKSPACE}"
+
             }
         }
         stage('Test') {
