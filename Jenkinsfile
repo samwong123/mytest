@@ -5,7 +5,7 @@ pipeline {
         PATH = """${sh(
                 returnStdout: true,
                 script: 'echo $PATH:/var/jenkins_home/tools/org.jenkinsci.plugins.golang.GolangInstallation/go-1.16/go/bin'
-            )}""" 
+            )}""" 			
 		
 		
     }
@@ -14,8 +14,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${env.WORKSPACE}"
 				echo "PATH = ${env.PATH}"
+                echo "BUILD_ID = ${env.BUILD_ID}"
+				echo "JENKINS_URL = {env.JENKINS_URL}"
+				echo "WORKSPACE = ${env.WORKSPACE}"
+				echo "GIT_URL = ${env.GIT_URL}"								
+				echo "PWD = $pwd"
+				sh "go build -a -installsuffix cgo -o "
 
             }
         }
