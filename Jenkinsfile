@@ -20,7 +20,7 @@ pipeline {
 				echo "WORKSPACE = ${env.WORKSPACE}"
 				echo "GIT_URL = ${env.GIT_URL}"								
 				echo "PWD = $pwd"
-				sh "go build -a -installsuffix cgo -o "
+				sh "sh build.sh"
 
             }
         }
